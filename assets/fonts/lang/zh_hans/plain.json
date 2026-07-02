@@ -3,8 +3,12 @@
 
     "fallbacks": [
         {
+            "font": "lang/zh_hans/dtm_mono",
+            "size": 16
+        },
+        {
             "font": "ja_main",
-            "size": 24
+            "size": 16
         }
     ]
 }

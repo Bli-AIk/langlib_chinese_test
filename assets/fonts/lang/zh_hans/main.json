@@ -1,10 +1,14 @@
 {
-    "defaultSize": 24,
+    "defaultSize": 32,
 
     "fallbacks": [
         {
+            "font": "lang/zh_hans/dtm_sans",
+            "size": 32
+        },
+        {
             "font": "ja_main",
-            "size": 24
+            "size": 28
         }
     ]
 }
