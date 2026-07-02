@@ -1,0 +1,49 @@
+{
+    "mod.loaded": "Loaded [var:name]!",
+    "mod.language_switched": "* Language switched to [var:language].",
+
+    "actor_dummy_name": "Dummy",
+    "actor_starwalker_name": "Starwalker",
+    "actor_wall_name": "Wall",
+
+    "map_room1_name": "Test Map - Room 1",
+    "map_room2_name": "Test Map - Room 2",
+
+    "encounter_dummy_start": "* The tutorial begins...?",
+    "enemy_dummy_name": "Dummy",
+    "enemy_dummy_check": "AT 4 DF 0\n* Cotton heart and button eye\n* Looks just like a fluffy guy.",
+    "enemy_dummy_turn_1": "* The dummy gives you a soft\nsmile.",
+    "enemy_dummy_turn_2": "* The power of fluffy boys is\nin the air.",
+    "enemy_dummy_turn_3": "* Smells like cardboard.",
+    "enemy_dummy_low_health": "* The dummy looks like it's\nabout to fall over.",
+
+    "act_dummy_smile": "Smile",
+    "act_dummy_tell_story": "Tell Story",
+    "act_dummy_smile_1": "* You smile.[wait:5]\n* The dummy smiles back.",
+    "act_dummy_smile_2": "* It seems the dummy just wanted\nto see you happy.",
+    "act_dummy_tell_story_text": "* You and Ralsei told the dummy\na bedtime story.\n* The enemies became [color:blue]TIRED[color:reset]...",
+    "act_dummy_ralsei_standard": "* Ralsei bowed politely.\n* The dummy spiritually bowed\nin return.",
+    "act_dummy_other_standard": "* [var:name] straightened the\ndummy's hat.",
+
+    "battle_dummy_susie_punch_1": "* Susie threw a punch at\nthe dummy.",
+    "battle_dummy_susie_punch_2": "* You,[wait:5] uh,[wait:5] look like a weenie.[wait:5]\n* I don't like beating up\npeople like that.",
+    "battle_dummy_susie_punch_3": "* Aww,[wait:5] Susie!",
+
+    "world_room1_wall_cracked": "* The wall seems cracked.",
+    "world_room1_wall_susie_break": "* Hey,[wait:5] think I can break\nthis wall?",
+    "world_room1_wall_guess_not": "* Guess not.",
+    "world_room1_starwalker_1": "* These [color:yellow]stairs[color:reset] are [color:yellow]Pissing[color:reset] me\noff...",
+    "world_room1_starwalker_2": "* I'm the original   [color:yellow]Starwalker[color:reset]",
+    "world_room1_savepoint_1": "* Silence echoes in the darkness\nof this familiar-yet-different\nscenery.",
+    "world_room1_savepoint_2": "* The power of avoiding copying\nofficial music shines within\nyou.",
+    "world_room1_wall_guardian_1": "* I Am the Wall Guardian.[wait:5]\n* This Wall is Off Limits for you\nno-good wall slammers.",
+
+    "item_ultimate_candy_name": "UltimatCandy",
+    "item_ultimate_candy_useName": "ULTIMATE CANDY",
+    "item_ultimate_candy_effect": "Best\nhealing",
+    "item_ultimate_candy_shopName": "Perfection",
+    "item_ultimate_candy_description": "Sparkles with perfection.\nMust be shared with everyone. +??HP",
+    "item_ultimate_candy_susieReaction": "Hey! It's hollow inside!",
+    "item_ultimate_candy_ralseiReaction": "I like the texture!",
+    "item_ultimate_candy_noelleReaction": "That was underwhelming..."
+}

@@ -29,11 +29,20 @@ local function localizeAlias(alias)
     end
 end
 
+local function playMenuSound(self, sound)
+    local instance = self and self[sound]
+    if instance then
+        instance:stop()
+        instance:play()
+    else
+        Assets.stopAndPlaySound(sound)
+    end
+end
+
 function DarkConfigMenu:update()
     if self.state == "MAIN" then
         if Input.pressed("confirm") then
-            self.ui_select:stop()
-            self.ui_select:play()
+            playMenuSound(self, "ui_select")
 
             if self.currently_selected == 1 then
                 self.state = "VOLUME"
@@ -60,8 +69,7 @@ function DarkConfigMenu:update()
         end
 
         if Input.pressed("cancel") then
-            self.ui_cancel_small:stop()
-            self.ui_cancel_small:play()
+            playMenuSound(self, "ui_cancel_small")
             Game.world.menu:closeBox()
             return
         end
@@ -77,8 +85,7 @@ function DarkConfigMenu:update()
         self.currently_selected = MathUtils.clamp(self.currently_selected, 1, 8)
         
         if old_selected ~= self.currently_selected then
-            self.ui_move:stop()
-            self.ui_move:play()
+            playMenuSound(self, "ui_move")
         end
     elseif self.state == "CONTROLS" and Game.hasXtraConfig then
         if not self.rebinding then
@@ -92,8 +99,7 @@ function DarkConfigMenu:update()
     elseif self.state == "VOLUME" then
         if Input.pressed("cancel") or Input.pressed("confirm") then
             Kristal.setVolume(MathUtils.round(Kristal.getVolume() * 100) / 100)
-            self.ui_select:stop()
-            self.ui_select:play()
+            playMenuSound(self, "ui_select")
             self.state = "MAIN"
             return
         end
@@ -118,8 +124,7 @@ function DarkConfigMenu:update()
         end
     elseif self.state == "LANGUAGE" then
         if Input.pressed("cancel") or Input.pressed("confirm") then
-            self.ui_select:stop()
-            self.ui_select:play()
+            playMenuSound(self, "ui_select")
             self.state = "MAIN"
             return
         end
@@ -137,8 +142,7 @@ function DarkConfigMenu:update()
         if old_selected ~= Game.langSelected then           
             Game:setLanguage(languages[Game.langSelected])
             
-            self.ui_move:stop()
-            self.ui_move:play()
+            playMenuSound(self, "ui_move")
         end
     end
 
@@ -442,21 +446,18 @@ if Game.hasXtraConfig then
                 self.rebinding = false
 
                 if worked then
-                    self.ui_select:stop()
-                    self.ui_select:play()
+                    playMenuSound(self, "ui_select")
 
                     if Kristal.getLibConfig("xtractrl", "saveAfterModification") then Input.saveBinds() end
                 else
-                    self.ui_cant_select:stop()
-                    self.ui_cant_select:play()
+                    playMenuSound(self, "ui_cant_select")
                 end
 
                 return
             end
             if Input.pressed("confirm") then
                 if self.currently_selected < 8 + self.max_offset then
-                    self.ui_select:stop()
-                    self.ui_select:play()
+                    playMenuSound(self, "ui_select")
                     self.rebinding = true
                     return
                 end
@@ -480,8 +481,7 @@ if Game.hasXtraConfig then
                     self.state = "MAIN"
                     self.currently_selected = 2
                     self.offset = 0
-                    self.ui_select:stop()
-                    self.ui_select:play()
+                    playMenuSound(self, "ui_select")
                     Input.clear("confirm", true)
                 end
                 return
@@ -519,8 +519,7 @@ if Game.hasXtraConfig then
             self.currently_selected = MathUtils.clamp(self.currently_selected, 1, self.max_offset + 9)
 
             if old_selected ~= self.currently_selected then
-                self.ui_move:stop()
-                self.ui_move:play()
+                playMenuSound(self, "ui_move")
             end
         end
     end

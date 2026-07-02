@@ -217,7 +217,10 @@ function langLibZh:postInit()
 
     HookSystem.hook(Assets, "startSound", function(orig, sound)
         local lang_path = "lang/" .. (Game.lang or FALLBACK_LANGUAGE) .. "/" .. sound
-        return orig(lang_path) or orig(sound)
+        if Assets.sounds and Assets.sounds[lang_path] then
+            return orig(lang_path)
+        end
+        return orig(sound)
     end)
 
     HookSystem.hook(Assets, "stopSound", function(orig, sound, actually_stop)
@@ -227,12 +230,18 @@ function langLibZh:postInit()
 
     HookSystem.hook(Assets, "playSound", function(orig, sound, volume, pitch)
         local lang_path = "lang/" .. (Game.lang or FALLBACK_LANGUAGE) .. "/" .. sound
-        return orig(lang_path, volume, pitch) or orig(sound, volume, pitch)
+        if Assets.sounds and Assets.sounds[lang_path] then
+            return orig(lang_path, volume, pitch)
+        end
+        return orig(sound, volume, pitch)
     end)
 
     HookSystem.hook(Assets, "stopAndPlaySound", function(orig, sound, volume, pitch, actually_stop)
         local lang_path = "lang/" .. (Game.lang or FALLBACK_LANGUAGE) .. "/" .. sound
-        return orig(lang_path, volume, pitch, actually_stop) or orig(sound, volume, pitch, actually_stop)
+        if Assets.sounds and Assets.sounds[lang_path] then
+            return orig(lang_path, volume, pitch, actually_stop)
+        end
+        return orig(sound, volume, pitch, actually_stop)
     end)
 
     HookSystem.hook(Assets, "getMusicPath", function(orig, music)

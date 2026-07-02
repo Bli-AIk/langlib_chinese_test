@@ -48,7 +48,7 @@ function Item:getBattleDescription() return Game:loc(self.effect, "item_"..self.
 function Item:getCheck() return Game:loc(self.check, "item_"..self.id.."_check") end
 
 function Item:getShopDescription()
-    return Game:loc("[var:typeName]\n[shopName]", "item_"..self.id.."_shopDesc", {typeName = self:getTypeName(), shopName = Game:loc(self.shop, "item_"..self.id.."_shopName")})
+    return Game:loc("[var:typeName]\n[var:shopName]", "item_"..self.id.."_shopDesc", {typeName = self:getTypeName(), shopName = Game:loc(self.shop, "item_"..self.id.."_shopName")})
 end
 
 function Item:getBattleText(user, target)

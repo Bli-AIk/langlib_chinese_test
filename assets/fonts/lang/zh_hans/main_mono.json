@@ -1,0 +1,11 @@
+{
+    "defaultSize": 24,
+    "lineSpacing": 28,
+
+    "fallbacks": [
+        {
+            "font": "ja_main",
+            "size": 24
+        }
+    ]
+}
