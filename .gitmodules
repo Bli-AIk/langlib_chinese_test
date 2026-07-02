@@ -1,0 +1,3 @@
+[submodule "libraries/langLib_zh_hans"]
+	path = libraries/langLib_zh_hans
+	url = https://github.com/Bli-AIk/kristal-langlib-zh-hans.git
