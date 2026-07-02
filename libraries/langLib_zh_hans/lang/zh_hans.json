@@ -59,6 +59,7 @@
     "item_toss4": "* 你抛弃了 [var:name]。",
     "item_toss5": "* [var:name] 被丢掉了。",
     "item_battleText": "* [var:charaName] 使用了 [var:useName]!",
+    "dark_item_toss_confirm": "真的要丢掉\n[var:itemName] 吗？",
     "itemType_item": "物品",
     "itemType_key": "钥匙物品",
     "itemType_weapon": "武器",

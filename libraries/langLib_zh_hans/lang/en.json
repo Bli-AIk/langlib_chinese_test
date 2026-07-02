@@ -59,6 +59,7 @@
     "item_toss4": "* You abandoned the [var:name].",
     "item_toss5": "* The [var:name] was thrown away.",
     "item_battleText": "* [var:charaName] used the [var:useName]!",
+    "dark_item_toss_confirm": "Really throw away the\n[var:itemName]?",
     "itemType_item": "ITEM",
     "itemType_key": "KEYITEM",
     "itemType_weapon": "WEAPON",

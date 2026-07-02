@@ -167,6 +167,116 @@ local function refreshLocalizedAssets()
     end
 end
 
+local function applyItemLocalizationPatch(item)
+    if not item or item.__langlib_zh_localized then
+        return item
+    end
+
+    item.__langlib_zh_localized = true
+
+    if item.id == "glowshard" then
+        local original_get_battle_text = item.getBattleText
+        function item:getBattleText(user, target)
+            if Game.battle and Game.battle.encounter and Game.battle.encounter.onGlowshardUse then
+                return original_get_battle_text(self, user, target)
+            end
+            return {
+                Game:loc("* [var:charaName] used the [var:useName]!", "item_glowshard_battleText", {
+                    charaName = user.chara:getName(),
+                    useName = self:getUseName()
+                }),
+                Game:loc("* But nothing happened...", "item_glowshard_battleNothing")
+            }
+        end
+    elseif item.id == "cell_phone" then
+        function item:onWorldUse()
+            Game.world:startCutscene(function(cutscene)
+                Assets.playSound("phone", 0.7)
+                cutscene:text(Game:loc("* (You tried to call on the Cell\nPhone.)", "item_cell_phone_call_try"), nil, nil, {advance = false})
+                cutscene:wait(40/30)
+
+                local was_playing = Game.world.music:isPlaying()
+                if was_playing then
+                    Game.world.music:pause()
+                end
+
+                Assets.playSound("smile")
+                cutscene:wait(200/30)
+
+                if was_playing then
+                    Game.world.music:resume()
+                end
+
+                if Game.chapter == 1 then
+                    cutscene:text(Game:loc("* But it doesn't seem to be working.", "item_cell_phone_call_not_working"))
+                else
+                    cutscene:text(Game:loc("* It's nothing but garbage noise.", "item_cell_phone_call_garbage_noise"))
+                end
+            end)
+        end
+    elseif item.id == "shadowcrystal" then
+        function item:getDescription()
+            local desc = Game:loc(self.description, "item_shadowcrystal_description")
+            if self:getCollected() > 0 then
+                desc = desc .. "\n" .. Game:loc("You have collected [var:count].", "item_shadowcrystal_collected", {
+                    count = self:getCollected()
+                })
+            end
+            return desc
+        end
+
+        function item:onWorldUse()
+            if Kristal.callEvent(KRISTAL_EVENT.onShadowCrystal, self, false) then
+                return
+            elseif not self:getFlag("used_none") then
+                self:setFlag("used_none", true)
+
+                Game.world:showText({
+                    Game:loc("* You held the crystal up to your\neye.", "item_shadowcrystal_use_1"),
+                    Game:loc("* ...[wait:5] but nothing happened.", "item_shadowcrystal_use_2")
+                })
+            else
+                Game.world:showText(Game:loc("* It doesn't seem very useful.", "item_shadowcrystal_use_again"))
+            end
+        end
+    end
+
+    return item
+end
+
+local function applySpellLocalizationPatch(spell)
+    if not spell or spell.__langlib_zh_localized then
+        return spell
+    end
+
+    spell.__langlib_zh_localized = true
+
+    if spell.id == "rude_buster" then
+        function spell:getCastMessage(user, target)
+            return Game:loc("* [var:userName] used [var:castName]!", "spell_rude_buster_castMessage", {
+                userName = user.chara:getName(),
+                castName = self:getCastName()
+            })
+        end
+    elseif spell.id == "pacify" then
+        function spell:getCastMessage(user, target)
+            local message = Game:loc("* [var:userName] cast [var:castName]!", "spell_castMessage", {
+                userName = user.chara:getName(),
+                castName = self:getCastName()
+            })
+            if target.tired then
+                return message
+            elseif target.mercy < 100 then
+                return message .. "\n[wait:0.25s]" .. Game:loc("* But the enemy wasn't [color:blue]TIRED[color:reset]...", "spell_pacify_not_tired_enemy")
+            else
+                return message .. "\n[wait:0.25s]" .. Game:loc("* But the foe wasn't [color:blue]TIRED[color:reset]... try\n[color:yellow]SPARING[color:reset]!", "spell_pacify_not_tired_foe_spare")
+            end
+        end
+    end
+
+    return spell
+end
+
 function langLibZh:init()
     ensureLanguageGlobals()
 end
@@ -350,6 +460,28 @@ function langLibZh:postInit()
         end
         return orig(self, choices, options)
     end)
+
+    HookSystem.hook(Registry, "createItem", function(orig, id, ...)
+        return applyItemLocalizationPatch(orig(id, ...))
+    end)
+
+    HookSystem.hook(Registry, "createSpell", function(orig, id, ...)
+        return applySpellLocalizationPatch(orig(id, ...))
+    end)
+
+    if DarkMenu then
+        HookSystem.hook(DarkMenu, "setDescription", function(orig, self, text, visible)
+            if type(text) == "string" then
+                local item_name = text:match("^Really throw away the\n(.+)%?$")
+                if item_name then
+                    text = Game:loc("Really throw away the\n[var:itemName]?", "dark_item_toss_confirm", {
+                        itemName = item_name
+                    })
+                end
+            end
+            return orig(self, text, visible)
+        end)
+    end
 
     refreshLocalizedAssets()
 end

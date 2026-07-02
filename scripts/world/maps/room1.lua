@@ -11,7 +11,8 @@ return {
   nextlayerid = 6,
   nextobjectid = 37,
   properties = {
-    ["name"] = "Test Map - Room 1"
+    ["name"] = "Test Map - Room 1",
+    ["name_id"] = "map_room1_name"
   },
   tilesets = {
     {

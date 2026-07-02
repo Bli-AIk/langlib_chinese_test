@@ -12,7 +12,10 @@ end
 function Mod:updateMapName()
     if Game.world and Game.world.map and Game.world.map.id and Game.loc then
         local map = Game.world.map
-        map.name = Game:loc(map.name or map.id, mapNameKey(map.id))
+        local properties = (map.data and map.data.properties) or {}
+        local name_key = properties["name_id"] or mapNameKey(map.id)
+        local default_name = properties["name"] or map.name or map.id
+        map.name = Game:loc(default_name, name_key)
     end
 end
 
