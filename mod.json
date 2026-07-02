@@ -62,6 +62,14 @@
     "config": {
         "kristal": {
             // End of config
+        },
+        "langLibZh": {
+            "defaultLanguage": "en",
+            "languages": ["en", "zh_hans"],
+            "languageNames": {
+                "en": "English",
+                "zh_hans": "简体中文"
+            }
         }
     },
 
