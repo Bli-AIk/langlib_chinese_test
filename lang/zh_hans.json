@@ -3,7 +3,7 @@
     "mod.language_switched": "* 语言已切换为[var:language]。",
 
     "actor_dummy_name": "假人",
-    "actor_starwalker_name": "星行者",
+    "actor_starwalker_name": "星之行者",
     "actor_wall_name": "墙",
 
     "map_room1_name": "测试地图 - 房间 1",
@@ -63,7 +63,7 @@
     "world_room1_wall_susie_break": "* 嘿，[wait:5]你觉得我能打破\n这面墙吗？",
     "world_room1_wall_guess_not": "* 看来不行。",
     "world_room1_starwalker_1": "* 这些[color:yellow]楼梯[color:reset]真让\n我[color:yellow]火大[color:reset]……",
-    "world_room1_starwalker_2": "* 我可是原版的   [color:yellow]星行者[color:reset]",
+    "world_room1_starwalker_2": "* 我可是原版的   [color:yellow]星之行者[color:reset]",
     "world_room1_savepoint_1": "* 寂静在这片熟悉却又陌生的\n黑暗景色中\n回响。",
     "world_room1_savepoint_2": "* 避免复制官方音乐的力量\n在你心中闪耀。",
     "world_room1_wall_guardian_1": "* 吾乃墙壁守卫。[wait:5]\n* 此墙禁止你们这些\n没规矩的撞墙者靠近。",
