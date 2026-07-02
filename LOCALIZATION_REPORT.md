@@ -14,7 +14,7 @@
 - Tiled NPC / Interactable：在 `text1/text2` 旁添加 `id1/id2`，hook 会按 id 本地化。
 - Tiled 地图名：添加 `name_id`，`mod.lua` 会用地图属性里的 `name_id` 本地化 `map.name`。
 - 物品、武器、防具、法术、角色名：通过库 hook 转为 `item_*`、`spell_*`、`chara_*` key。
-- 中文字体：测试项目使用 `assets/fonts/lang/zh_hans/` 下的语言专用字体。`main` / `main_mono` / `plain` 的主字体保留 Kristal 原英文字体，中文字符通过 DTM fallback 字体显示，避免中文模式下英文变糊。
+- 中文字体：由 `libraries/langLib_zh_hans` 库内置提供。`main` / `main_mono` / `plain` 的主字体保留 Kristal 原英文字体，中文字符回退到原先使用的 FZBitmap / Unifont 字体，避免中文模式下英文变糊。
 
 ## 本次补齐范围
 
@@ -63,7 +63,7 @@ timeout 10s love /home/aik/Projects/LuaProjects/Kristal --mod langlib_chinese_te
 
 - JSON 合法。
 - Lua 语法通过。
-- 主字体 + DTM fallback 的新增中文字符缺字数为 0。
+- 主字体 + FZBitmap / Unifont fallback 的新增中文字符缺字数为 0。
 - 游戏启动输出 `Loaded langlib_chinese_test!`，没有报错。
 
 ## 仓库结构
@@ -81,7 +81,7 @@ libraries/langLib_zh_hans -> https://github.com/Bli-AIk/kristal-langlib-zh-hans.
 - `main.ttf`: Kristal 原版 `8bitoperator JVE`
 - `main_mono.ttf`: Kristal 原版 `Monospaced JVE`
 - `plain.ttf`: Kristal 原版 `8bitoperator JVE`
-- `dtm_sans.ttf`: `Determination Sans SimSun`，作为 `main` 的中文 fallback
-- `dtm_mono.ttf`: `Determination Mono SimSun`，作为 `main_mono` / `plain` 的中文 fallback
+- `zh_main.ttf`: 原先使用的 `FZBitmap_18030_11X12`，作为 `main` / `main_mono` 的中文 fallback
+- `zh_plain.ttf`: 原先使用的 `Unifont`，作为 `plain` 的中文 fallback
 
-因此英文和 ASCII 仍由原英文字体绘制，只有中文字符落到 DTM 字体。
+因此英文和 ASCII 仍由原英文字体绘制，只有中文字符落到中文 fallback 字体。测试项目不再自带字体副本，字体随 `langLibZh` submodule 提供。
