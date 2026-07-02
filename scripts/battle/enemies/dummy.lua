@@ -40,6 +40,7 @@ function Dummy:init()
 end
 
 function Dummy:applyLocalization(update_acts)
+    local old_check = self.act_check
     local old_smile = self.act_smile
     local old_tell_story = self.act_tell_story
 
@@ -57,12 +58,19 @@ function Dummy:applyLocalization(update_acts)
     -- Text displayed at the bottom of the screen when the enemy has low health
     self.low_health_text = Game:loc("* The dummy looks like it's\nabout to fall over.", "enemy_dummy_low_health")
 
+    self.act_check = Game:loc("Check", "act_check")
     self.act_smile = Game:loc("Smile", "act_dummy_smile")
     self.act_tell_story = Game:loc("Tell Story", "act_dummy_tell_story")
 
+    if self.acts and self.acts[1] then
+        self.acts[1].name = self.act_check
+    end
+
     if update_acts then
         for _, act in ipairs(self.acts or {}) do
-            if act.name == old_smile then
+            if act.name == old_check then
+                act.name = self.act_check
+            elseif act.name == old_smile then
                 act.name = self.act_smile
             elseif act.name == old_tell_story then
                 act.name = self.act_tell_story
@@ -72,7 +80,10 @@ function Dummy:applyLocalization(update_acts)
 end
 
 function Dummy:onAct(battler, name)
-    if name == self.act_smile then
+    if name == self.act_check then
+        return super.onAct(self, battler, "Check")
+
+    elseif name == self.act_smile then
         -- Give the enemy 100% mercy
         self:addMercy(100)
         -- Change this enemy's dialogue for 1 turn

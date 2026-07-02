@@ -47,6 +47,7 @@
     "enemy_dummy_turn_3": "* Smells like cardboard.",
     "enemy_dummy_low_health": "* The dummy looks like it's\nabout to fall over.",
 
+    "act_check": "Check",
     "act_dummy_smile": "Smile",
     "act_dummy_tell_story": "Tell Story",
     "act_dummy_smile_1": "* You smile.[wait:5]\n* The dummy smiles back.",
