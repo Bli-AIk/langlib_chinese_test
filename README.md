@@ -17,13 +17,13 @@
 
 ## 简介
 
-`langlib_chinese_test` 是一个 Kristal 测试模组，完整演示了 `langLib_zh_hans` 库的各项汉化能力。它覆盖了文本、菜单、物品、技能、角色名、Tiled 地图/NPC/Interactable 等常见入口的本地化，并内置 F6 实时语言切换。
+`langlib_chinese_test` 是一个 Kristal 测试模组，完整演示了 `langLib_zh_hans` 库的各项汉化能力。它覆盖了文本、菜单、物品、技能、角色名、Tiled 地图/NPC/Interactable 等常见入口的本地化，并内置 F7 实时语言切换。
 
 本模组同时也是汉化库开发过程中的集成验证工具——每个汉化入口在此都有对应的测试用例，确保库更新不破坏已有功能。
 
 ## 特性
 
-- 🌐 中英双语，F6 一键切换
+- 🌐 中英双语，F7 一键切换
 - 📝 Cutscene 文本按 `id` 本地化
 - 🎛️ Cutscene 选项按 `ids` 本地化
 - 🗺️ Tiled NPC / Interactable 通过 `id1`/`id2` 属性本地化
@@ -51,7 +51,7 @@
    ```
 
 3. 启动 Kristal，在模组选择中选择 **langlib_chinese_test**。
-4. 按 F6 可随时切换中英文。
+4. 按 F7 可随时切换中英文。
 
 ## 参考来源
 

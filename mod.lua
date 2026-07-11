@@ -34,7 +34,8 @@ function Mod:postUpdate()
 end
 
 function Mod:onKeyPressed(key, is_repeat)
-    if is_repeat or key ~= "f6" or not Game.setLanguage then
+    -- F6 is reserved by Kristal for debug rendering.
+    if is_repeat or key ~= "f7" or not Game.setLanguage then
         return
     end
 
@@ -48,7 +49,7 @@ function Mod:onKeyPressed(key, is_repeat)
         })
         print(message)
 
-        if Game.world and not Game.world:hasCutscene() and not Game.world.menu then
+        if Game.world and Game.world.player and not Game.world:hasCutscene() and not Game.world.menu then
             Game.world:showText(message)
         end
 

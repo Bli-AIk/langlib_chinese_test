@@ -17,13 +17,13 @@
 
 ## Introduction
 
-`langlib_chinese_test` is a Kristal test mod that fully demonstrates the localization capabilities of the `langLib_zh_hans` library. It covers text, menus, items, spells, character names, Tiled maps/NPCs/Interactables, and more — all with F6 real-time language toggling.
+`langlib_chinese_test` is a Kristal test mod that fully demonstrates the localization capabilities of the `langLib_zh_hans` library. It covers text, menus, items, spells, character names, Tiled maps/NPCs/Interactables, and more — all with F7 real-time language toggling.
 
 This mod also serves as an integration validation tool during library development — each localization entry point has a corresponding test case here, ensuring library updates don't break existing functionality.
 
 ## Features
 
-- 🌐 Bilingual (Chinese/English), toggle anytime with F6
+- 🌐 Bilingual (Chinese/English), toggle anytime with F7
 - 📝 Cutscene text localized by `id`
 - 🎛️ Cutscene choices localized by `ids`
 - 🗺️ Tiled NPC / Interactable localization via `id1`/`id2` properties
@@ -51,7 +51,7 @@ This mod also serves as an integration validation tool during library developmen
    ```
 
 3. Launch Kristal and select **langlib_chinese_test** from the mod menu.
-4. Press F6 to switch between Chinese and English at any time.
+4. Press F7 to switch between Chinese and English at any time.
 
 ## References
 

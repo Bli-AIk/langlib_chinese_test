@@ -2,7 +2,7 @@
 
 ## 结论
 
-这个测试模组现在使用 `langLibZh` 进行本地化，语言文件放在 `lang/en.json` 与 `lang/zh_hans.json`。运行时可用 `Game:setLanguage("en")` / `Game:setLanguage("zh_hans")` 切换语言，测试项目也在 `mod.lua` 中绑定了 `F6` 快速切换。
+这个测试模组现在使用 `langLibZh` 进行本地化，语言文件放在 `lang/en.json` 与 `lang/zh_hans.json`。运行时可用 `Game:setLanguage("en")` / `Game:setLanguage("zh_hans")` 切换语言，测试项目也在 `mod.lua` 中绑定了 `F7` 快速切换；F6 保留给 Kristal 的调试渲染功能。
 
 汉化不是直接把源码字段改成中文，而是保留英文默认文本，通过稳定 key 查语言表。这样英文和中文可以共存，Tiled 文件和 Lua 脚本里的默认文本也能作为 fallback。
 
