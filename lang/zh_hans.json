@@ -20,7 +20,7 @@
     "spell_ultimate_heal_name": "终极治疗",
     "spell_ultimate_heal_castName": "终极治疗",
     "spell_ultimate_heal_effect": "最佳\n治疗",
-    "spell_ultimate_heal_description": "以[name:chara:susie]最大的能力\n治疗 1 名队员。",
+    "spell_ultimate_heal_description": "以[name:chara:susie]最大的能力\n治疗 1 名队伍成员。",
     "spell_pacify_name": "安抚",
     "spell_pacify_castName": "安抚",
     "spell_pacify_effect": "饶恕\n疲倦敌人",
@@ -30,7 +30,7 @@
     "spell_heal_prayer_name": "治愈祈祷",
     "spell_heal_prayer_castName": "治愈祈祷",
     "spell_heal_prayer_effect": "治疗\n队友",
-    "spell_heal_prayer_description": "天堂之光会为一名队员\n恢复少量HP。取决于魔法。",
+    "spell_heal_prayer_description": "天堂之光会为一名队伍成员\n恢复少量HP。取决于魔法。",
 
     "encounter_dummy_start": "* 教程开始了……？",
     "enemy_dummy_name": "假人",
