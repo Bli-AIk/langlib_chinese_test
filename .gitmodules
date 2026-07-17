@@ -1,3 +1,6 @@
 [submodule "libraries/langLib_zh_hans"]
 	path = libraries/langLib_zh_hans
 	url = https://github.com/Bli-AIk/kristal-langlib-zh-hans.git
+[submodule ".emacs"]
+	path = .emacs
+	url = https://github.com/Bli-AIk/kristal-emacs-config.git
